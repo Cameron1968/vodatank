@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VodaTank - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #ddd;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .language-switch img {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .hero {
+            position: relative;
+            height: 150vh;
+            background: url('./img/product-image.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .hero-statement {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+        .scrolled .hero-statement {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .hidden-content {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+            opacity: 1;
+            transition: all 0.5s ease;
+        }
+        .scrolled .hidden-content {
+            position: absolute;
+            bottom: 75%;
+            top: 50%;
+            opacity: 1;
+            font-size: 1.8rem;
+        }
+    </style>
+    <script>
+        function initHeroEffect() {
+            const hero = document.querySelector(".hero");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    hero.classList.add("scrolled");
+                } else {
+                    hero.classList.remove("scrolled");
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", initHeroEffect);
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+			<a href="index.html">
+				<img src="./img/logo-transparent.png" alt="Home" height="24" width="75">
+			</a>
+            <a href="index.html">Home</a>
+			<a href="our-products.html">Our Products</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="use-and-care.html">Use and Care</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+        <div class="language-switch">
+			<a href="index.html">
+            	<img src="./img/us-flag.png" alt="English">
+			</a>
+			<a href="index_cn.html">
+            	<img src="./img/cn-flag.png" alt="Chinese">
+			</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-statement">Ditch the plastic, Embrace the Nature, Choose VodaTank</div>
+        <div class="hidden-content">VodaTank is a premium water bottle crafted from durable, food-grade stainless steel, ensuring your hydration is as safe as it is stylish. Inspired by the iconic design of scuba diving air cylinders, VodaTank embodies a spirit of exploration and adventure. Whether you are scaling mountains, hitting the gym, diving into the ocean's depths, or tracking your daily commute, this bottle is your perfect companion.</div>
+    </div>
+</body>
+<footer>
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <div>
+		© 2024 VodaTank Sdn Bhd. All rights reserved.
+
+		VodaTank® is a registered trademark of VodaTank Sdn Bhd. All images, content, and materials on this website are the exclusive property of VodaTank Sdn Bhd and are protected by copyright laws. The products displayed are patented (Patent No. 202430165597X) and may not be reproduced, distributed, or used without prior written consent. Unauthorized use and/or duplication of this material without express and written permission from VodaTank Sdn Bhd is strictly prohibited.
+    </div>
+</footer>
+</html>
