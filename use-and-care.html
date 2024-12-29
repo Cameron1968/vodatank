@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VodaTank - Use and Care</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    overflow-x: hidden;
+					background: url('./img/deep-ocean.jpeg');
+                }
+                /* Script to place flags at the top-right of the page */
+                .us-flag {
+                    position: absolute;
+                    top: 15px;
+                    right: 55px;
+                }
+                .cn-flag {
+                    position: absolute;
+                    top: 15px;
+                    right: 85px;
+                }
+                header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px;
+                    background-color: transparent;
+                    position: sticky;
+                    top: 0;
+                    z-index: 1000;
+                    border-bottom: 0px solid #ddd;
+                }
+                /* Code added to have hamburger menu for large and mobile screen */
+                .hamburger {
+                    display: flex;
+                    flex-direction: column;
+                    cursor: pointer;
+                }
+                .hamburger span {
+                    background: orange; /* original color #333 */
+                    display: block;
+                    height: 3px;
+                    width: 25px;
+                    margin: 4px 0;
+                }
+                .menu {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 50px;
+                    right: 20px;
+                    background-color: #f4f4f4;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 1000;
+                }
+                .menu a:hover {
+                    text decoration: underline;
+                }
+                .menu a {
+                    margin: 10px 0;
+                    text-decoration: none;
+                    color: #333;
+                    cursor: pointer;
+                }
+                .menu.hidden {
+                    display: none;
+                }
+                .menu.visible {
+                    display: flex;
+                }
+                /* End of added code */
+                .hero {
+                    position: relative;
+                    height: 100vh; /* Original value 100vh */
+                    background: url('./img/deep-ocean.jpeg') no-repeat center center/cover;
+                    background-position: top center;
+					background-color: black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+                .hero-statement {
+                    position: absolute;
+                    top: 25%; /* Original value 25% */
+                    left: 50%; /* Original value 50% */
+                    transform: translate(-50%, -50%);
+                    transition: all 0.5s ease;
+                }
+                .scrolled .hero-statement {
+                    top: 0; /* Original value 0 */
+                    left: 50%; /* Original value 50% */
+                    transform: translate(-50%, 0);
+                    font-size: 1.5rem;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+                .hidden-content {
+                    position: absolute;
+                    bottom: 10%; /* Original value 10%, default for large screen */
+                    width: 80%; /* Original value 100% */
+                    text-align: center;
+                    color: white;
+                    font-size: 0.5rem; /* Original value 1rem */
+                    opacity: 0;
+                    transition: all 0.5s ease;
+                }
+                .scrolled .hidden-content {
+                    position: relative; /* Original value obsolute */
+                    bottom: 50%; /* Original value 75% */
+                    top: 20%; /* Original value 50% */
+                    opacity: 1;
+                    font-size: 1rem; /* Original value 1rem */
+                }
+                /* Media Query for Mobile Screen */
+                @media (max-width: 768px) {
+                    .hero {
+                        background-size: 100% auto; /* Reduce the background image size by X% */
+						height: 180vh;
+                    }
+					.hidden-content {
+						bottom: 50%; /* Adjust for mobile screens, original value 30% */
+					}
+					.scroll .hidden-content {
+						position: relative;
+						bottom: 50%; /* Original value 50% */
+						top: 20%; /* Original value 20% */
+						opacity: 1;
+						font-size: 1rem;
+					}
+				}
+                </style>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const hamburger = document.querySelector(".hamburger");
+                    const menu = document.querySelector(".menu");
+                    hamburger.addEventListener("click", () => {
+                        menu.classList.toggle("visible");
+                    });
+                });
+                function initHeroEffect() {
+                    const hero = document.querySelector(".hero");
+                    window.addEventListener("scroll", () => {
+                        if (window.scrollY > 50) {
+                            hero.classList.add("scrolled");
+                        } else {
+                            hero.classList.remove("scrolled");
+							hiddenContent.style.bottom = "50%" // Reset position when scrolled back to the top
+                        }
+                    });
+                }
+                
+                document.addEventListener("DOMContentLoaded", initHeroEffect);
+            </script>
+            <script>
+                // Function to detect the browser language and redirect accordingly
+                window.onload = function() {
+                    // Get the browser's language (defaults to 'en' if not found)
+                    var userLang = navigator.language || navigator.userLanguage;
+
+                    // Check if the language contains 'zh' (for Chinese)
+                    if (userLang.includes('zh')) {
+                        // Redirect to the Chinese version of the page
+                        if (window.location.pathname === '/') {
+                            window.location.href = '/index_cn.html';  // Redirect to index_cn.html
+                        }
+                    } else {
+                        // Default to the English version
+                        if (window.location.pathname === '/') {
+                            window.location.href = '/index.html';  // Default page
+                        }
+                    }
+                };
+            </script>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="./img/logo-transparent.png" alt="Home" height="24" width="75">
+        </a>
+        <!-- <div class="language-switch"> -->
+        <div>
+            <a href="index.html">
+                <img height=24px src="./img/us-flag.png" alt="English" class="us-flag">
+            </a>
+            <a href="index_cn.html">
+                <img height=24px src="./img/cn-flag.png" alt="Chinese" class="cn-flag">
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu hidden">
+            <a href="index.html">Home</a>
+            <a href="our-products.html">Our Products</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="use-and-care.html">Use and Care</a>
+            <a href="buy-products.html">Where to Buy</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="content">
+       	<h1 style="color:White;">Use and Care</h1>
+        <h2 style="color:White;">1. First Time Use</h2>
+        <ul>
+            <li style="color:White;"><strong>Wash Thoroughly</strong>: Before using your VodaTank for the first time, wash it with warm water and mild dish soap. Use a bottle brush to clean the interior thoroughly.</li>
+            <li style="color:White;"><strong>Sanitize</strong>: To ensure cleanliness, you can sanitize it by filling it with boiling water and letting it sit for 10-15 minutes, then emptying and rinsing. Avoid boiling the bottle directly. CAUTION: beware of burns as VodaTank isn’t insulated!</li>
+			<li style="color:White;"><strong>Check for Seals</strong>: Inspect the cap and silicone seal to ensure they are intact and properly fitted</li>           
+        </ul>
+        <hr>
+        <h2 style="color:White;">2. Day-to-Day Usage</h2>
+        <ul>
+            <li style="color:White;"><strong>Daily Cleaning</strong>: Rinse VodaTank with warm water after each use, especially if you’ve used it for beverages other than water.</li>
+            <li style="color:White;"><strong>Deep Clean Regularly</strong>: At least once a month, wash the bottle with a bottle brush and mild soap. For stubborn odors or stains, use a mixture of baking soda and water or white vinegar. Let it sit for a while, then rinse thoroughly.</li>
+            <li style="color:White;"><strong>Dry Properly</strong>: After washing, air-dry the bottle upside down with the cap off to prevent moisture buildup and odors</li>
+            <li style="color:White;"><strong>Avoid Overfilling</strong>: Leave a small gap at the top to allow for secure sealing and pressure adjustments, especially for carbonated beverages.</li>
+        </ul>
+        <hr>
+        <h2 style="color:White;">3. Things to Avoid</h2>
+        <ul>
+            <li style="color:White;"><strong>Hot Liquids</strong>: VodaTank isn’t insulated, while the bottle is capable for holding hot water, please do not fill it with hot liquids to prevent burns when handling it.</li>
+            <li style="color:White;"><strong>Harsh Chemicals</strong>: Do not use bleach, chlorine, or abrasive cleaners, as they can damage VodaTank's finish.</li>
+			<li style="color:White;"><strong>Dishwasher</strong>: Avoid putting VodaTank in the dishwasher. High heat and detergents can degrade seals and finishes over time.</li>
+			<li style="color:White;"><strong>Freezer</strong>: Avoid freezing VodaTank, as liquid expansion could damage its structure or the seals.</li>
+			<li style="color:White;"><strong>Microwave</strong>: Never put VodaTank in the microwave. Stainless steel is not microwave-safe and can cause damage to the appliance and the bottle.</li>
+			<li style="color:White;"><strong>Impact Damage</strong>: Try not to drop VodaTank, as dents can affect its appearance.</li>
+			<li style="color:White;"><strong>Long-Term Storage Without Cleaning</strong>: Don’t leave beverages, especially sugary or acidic drinks, in VodaTank for extended periods. They can cause odors, stains, or corrosion.</li>
+        </ul>
+		<hr>
+		<h2 style="color:White;">4. Pro Tips for Longevity</h2>
+		<ul>
+			<li style="color:White;">Replace Seals When Needed: Over time, silicone seal may wear out. Replace them to maintain leak-proof performance.</li>
+		</ul>
+    </div>
+</body>
+</html>

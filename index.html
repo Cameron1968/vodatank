@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VodaTank - Home</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    overflow-x: hidden;
+                }
+                /* Script to place flags at the top-right of the page */
+                .us-flag {
+                    position: absolute;
+                    top: 15px;
+                    right: 55px;
+                }
+                .cn-flag {
+                    position: absolute;
+                    top: 15px;
+                    right: 85px;
+                }
+                header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px;
+                    background-color: transparent;
+                    position: sticky;
+                    top: 0;
+                    z-index: 1000;
+                    border-bottom: 0px solid #ddd;
+                }
+                /* Code added to have hamburger menu for large and mobile screen */
+                .hamburger {
+                    display: flex;
+                    flex-direction: column;
+                    cursor: pointer;
+                }
+                .hamburger span {
+                    background: orange; /* Original color #333 */
+                    display: block;
+                    height: 3px;
+                    width: 25px;
+                    margin: 4px 0;
+                }
+                .menu {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 50px;
+                    right: 20px;
+                    background-color: #f4f4f4;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 1000;
+                }
+                .menu a:hover {
+                    text decoration: underline;
+                }
+                .menu a {
+                    margin: 10px 0;
+                    text-decoration: none;
+                    color: #333;
+                    cursor: pointer;
+                }
+                .menu.hidden {
+                    display: none;
+                }
+                .menu.visible {
+                    display: flex;
+                }
+                /* End of added code */
+                /* The below script remarked to remove the menubar and unused script
+                 nav a {
+                 margin: 0 10px;
+                 text-decoration: none;
+                 color: #333;
+                 cursor: pointer;
+                 }
+                 nav a:hover {
+                 text-decoration: underline;
+                 }
+                 
+                 .language-switch {
+                 display: flex;
+                 align-items: center;
+                 margin-right: 10px;
+                 }
+                 
+                 .language-switch img {
+                 width: 24px;
+                 height: 24px;
+                 margin-right: 5px;
+                 cursor: pointer;
+                 }
+                 */
+                .hero {
+                    position: relative;
+                    height: 100vh;
+                    background: url('./img/product-image.jpg') no-repeat center center/cover;
+                    background-position: top center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+                .hero-statement {
+                    position: absolute;
+                    top: 25%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: all 0.5s ease;
+                }
+                .scrolled .hero-statement {
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    font-size: 1.5rem;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+                .hidden-content {
+                    position: absolute;
+                    bottom: 10%;
+                    width: 100%;
+                    text-align: center;
+                    color: white;
+                    font-size: 1rem;
+                    opacity: 0;
+                    transition: all 0.5s ease;
+                }
+                .scrolled .hidden-content {
+                    position: absolute;
+                    bottom: 75%;
+                    top: 50%;
+                    opacity: 1;
+                    font-size: 1.2rem;
+                }
+                /* Removed not required script
+                 .hidden-link {
+                 position: absolute;
+                 bottom: 10%;
+                 width: 100%;
+                 text-align: center;
+                 color: white;
+                 font-size: 1rem;
+                 opacity: 1;
+                 transition: all 0.5s ease;
+                 }
+                 .scrolled .hidden-link {
+                 position: absolute;
+                 bottom: 25%;
+                 top: 60%;
+                 opacity: 1;
+                 font-size: 1.5rem;
+                 }
+                 */
+                /* Media Query for Mobile Screen */
+                @media (max-width: 768px) {
+                    .hero {
+                        background-size: 120% auto; /* Reduce the background image size by X% */
+                    }
+				}
+                </style>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const hamburger = document.querySelector(".hamburger");
+                    const menu = document.querySelector(".menu");
+                    hamburger.addEventListener("click", () => {
+                        menu.classList.toggle("visible");
+                    });
+                });
+                function initHeroEffect() {
+                    const hero = document.querySelector(".hero");
+                    window.addEventListener("scroll", () => {
+                        if (window.scrollY > 50) {
+                            hero.classList.add("scrolled");
+                        } else {
+                            hero.classList.remove("scrolled");
+                        }
+                    });
+                }
+                
+                document.addEventListener("DOMContentLoaded", initHeroEffect);
+            </script>
+            <script>
+                // Function to detect the browser language and redirect accordingly
+                window.onload = function() {
+                    // Get the browser's language (defaults to 'en' if not found)
+                    var userLang = navigator.language || navigator.userLanguage;
+
+                    // Check if the language contains 'zh' (for Chinese)
+                    if (userLang.includes('zh')) {
+                        // Redirect to the Chinese version of the page
+                        if (window.location.pathname === '/') {
+                            window.location.href = '/index_cn.html';  // Redirect to index_cn.html
+                        }
+                    } else {
+                        // Default to the English version
+                        if (window.location.pathname === '/') {
+                            window.location.href = '/index.html';  // Default page
+                        }
+                    }
+                };
+            </script>
+</head>
+<body>
+    <header>
+        <!-- This section is remarked to remove the top menu bar
+		<nav>
+			<a href="index.html">
+				<img src="./img/logo-transparent.png" alt="Home" height="24" width="75">
+			</a>
+            <a href="index.html">Home</a>
+			<a href="our-products.html">Our Products</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="use-and-care.html">Use and Care</a>
+			<a href="buy-products.html">Where to Buy</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+        <div class="language-switch">
+			<a href="index.html">
+            	<img src="./img/us-flag.png" alt="English">
+			</a>
+			<a href="index_cn.html">
+            	<img src="./img/cn-flag.png" alt="Chinese">
+			</a>
+        </div>
+		-->
+        <a href="index.html">
+            <img src="./img/logo-transparent.png" alt="Home" height="24" width="75">
+        </a>
+        <!-- <div class="language-switch"> -->
+        <div>
+            <a href="index.html">
+                <img height=24px src="./img/us-flag.png" alt="English" class="us-flag">
+            </a>
+            <a href="index_cn.html">
+                <img height=24px src="./img/cn-flag.png" alt="Chinese" class="cn-flag">
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu hidden">
+            <a href="index.html">Home</a>
+            <a href="our-products.html">Our Products</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="use-and-care.html">Use and Care</a>
+            <a href="buy-products.html">Where to Buy</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-statement">Ditch the plastic, Embrace the Nature, Choose VodaTank</div>
+        <div class="hidden-content">VodaTank is a premium water bottle crafted from durable, food-grade stainless steel, ensuring your hydration is as safe as it is stylish. Inspired by the iconic design of scuba diving air cylinders, VodaTank embodies a spirit of exploration and adventure. Whether you are scaling mountains, hitting the gym, diving into the ocean's depths, or tracking your daily commute, this bottle is your perfect companion.
+		<p style="color:yellow">"Driven by a mission to combat plastic waste, VodaTank is more than just a reusable container — it is a symbol of VodaTank's commitment to reducing ocean pollution and encouraging others to embrace sustainability."</p>
+		<p>
+			<a href="our-products.html">Click to learn more about our products</a>
+		</p>
+		</div>
+    </div>
+</body>
+</html>

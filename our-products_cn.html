@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	   <title>VodaTank - 我们的产品</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				/* 
+				padding: 0;
+				height: 100%;
+				*/
+				background-image: url('./img/our-product.jpeg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				overflow-x: hidden;
+			}
+			/* Script below added to place product images */
+			.product-section {
+				position: relative;
+				text-align: center;
+				margin: 30px 0; /* Space between product sections */
+			}
+			.product-image {
+				width: 80%;
+				max-width: 600px;
+				display: block;
+				margin: 0 auto;
+			}
+			.description-overlay {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: transparent;
+				color: white;
+				padding: 20px;
+				border-radius: 10px;
+				text-align: center;
+				max-width: 80%;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			}
+			.description-overlay-sticker {
+				position: absolute;
+				top: -10%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: transparent;
+				color: white;
+				padding: 20px;
+				border-radius: 10px;
+				text-align: center;
+				max-width: 80%;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			}
+	        .description-overlay h2 {
+	            margin: 0 0 10px;
+	        }
+	        .description-overlay ul {
+	            list-style: none;
+	            padding: 0;
+	            margin: 0;
+	        }
+	        .description-overlay-sticker ul {
+	            list-style: none;
+	            padding: 0;
+	            margin: 0;
+	        }
+	        .description-overlay li {
+	            margin-bottom: 10px;
+	        }
+			/* Script to place flags at the top-right of the page */
+            .us-flag {
+                position: absolute;
+                top: 15px;
+                right: 55px;
+            }
+            .cn-flag {
+                position: absolute;
+                top: 15px;
+                right: 85px;
+            }
+			header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 20px;
+				background-color: transparent;
+				position: sticky;
+				top: 0;
+				z-index: 1000;
+				border-bottom: 0px solid #ddd;
+			}
+			/* Code added to have hamburger menu for large and mobile screens */
+			.hamburger {
+				display: flex;
+				flex-direction: column;
+				cursor: pointer;
+			}
+			.hamburger span {
+				background: orange;
+				display: block;
+				height: 3px;
+				width: 25px;
+				margin: 4px 0;
+			}
+			.menu {
+				display: none;
+				flex-direction: column;
+				position: absolute;
+				top: 50px;
+				right: 20px;
+				background-color: #f4f4f4;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				padding: 10px;
+				border-radius: 5px;
+				z-index: 1000;
+			}
+			.menu a:hover {
+				text decoration: underline;
+			}
+			.menu a {
+				margin: 10px 0;
+				text-decoration: none;
+				color: #333;
+				cursor: pointer;
+			}
+			.menu.hidden {
+				display: none;
+			}
+			.menu.visible {
+				display: flex;
+			}
+			h1 {
+				text-align: center;
+				color: white;
+			}
+			/* End of added code */
+			.hero {
+				position: relative;
+				height: 100vh;
+				display: flex;
+				justify.content: center;
+				align-items: center;
+				text-align: center;
+				color: white;
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
+			/* Removed unused script
+			.hero-statement {
+				position: absolute;
+				top: 25%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				transition: all 0.5s ease;
+			}
+			.scrolled .hero-statement {
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, 0);
+				font-size: 1.5rem;
+				background-color: rgba(0, 0, 0, 0.5);
+				padding: 10px;
+				border-radius: 5px;
+			}
+			.hidden-content {
+                position: absolute;
+                bottom: 10%; 
+                width: 80%; 
+                text-align: center;
+                color: white;
+                font-size: 0.5rem; 
+                opacity: 0;
+                transition: all 0.5s ease;
+			}
+            .scrolled .hidden-content {
+                position: relative; 
+                bottom: 50%; 
+                top: 20%; 
+                opacity: 1;
+                font-size: 1rem; 
+            }
+			.address {
+				margin: 50px auto;
+				padding: 20px;
+				border: 1px solid #ddd;
+				border-radius: 10px;
+				max-width: 400px;
+				background-color: #f9f9f9;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			}
+			.address h1 {
+				margin-bottom: 20px;
+				font-size: 1.5rem;
+				color: #333;
+			}
+			.address p {
+				margin: 5px 0;
+				font-size: 1rem;
+				color: #555;
+			}
+			.centerlogo {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				height: 128px;
+				width: 400px;
+			}
+			*/
+            /* Media Query for Mobile Screen */
+            @media (max-width: 768px) {
+                .hero {
+                    background-size: 100% auto; /* Reduce the background image size by X% */
+					height: 180vh;
+                }
+				/* Pasted from top */
+				/* Script below added to place product images */
+				body {
+					background-image: 80%;
+					height: 150vh;
+				}
+				.product-section {
+					position: relative;
+					text-align: center;
+					margin: 50px 0; /* Space between product sections */
+				}
+				.product-image {
+					width: 80%;
+					max-width: 600px;
+					display: block;
+					margin: 0 auto;
+				}
+				.description-overlay {
+					/*
+					position: absolute;
+					top: 50%;
+					*/
+					position: absolute;
+					left: 5%;
+					width: 100%;
+					transform: none;
+					top: 20%;
+					/*
+					background-color: transparent;
+					color: white;
+					padding: 0px;
+					border-radius: 10px;
+					text-align: center;
+					max-width: 150%;
+					box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+					*/
+					margin: 20px auto 0;
+				}
+				.description-overlay-sticker {
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					width: 90%;
+					background-color: transparent;
+					color: white;
+					padding: 20px;
+					border-radius: 10px;
+					text-align: center;
+					max-width: 90%;
+					box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+				}
+		        .description-overlay h2 {
+		            margin: 0 0 10px;
+		        }
+		        .description-overlay ul {
+		            list-style: none;
+		            padding: 0;
+		            margin: 0;
+		        }
+		        .description-overlay-sticker ul {
+		            list-style: none;
+		            padding: 0;
+		            margin: 0;
+		        }
+		        .description-overlay li {
+		            margin-bottom: 10px;
+		        }
+				/* End of pasted from top */
+				/* Removed unused script
+				.hidden-content {
+					bottom: 50%;
+				}
+				.scroll .hidden-content {
+					position: relative;
+					bottom: 50%;
+					top: 20%;
+					opacity: 1;
+					font-size: 1rem;
+				}
+				.centerlogo {
+					height: 60%;
+					width: 60%;
+				}
+				.address h1 {
+					font-size: 1rem;
+				}
+				.address p {
+					font-size: 0.9rem;
+				}
+				.address {
+					max-width: 50%;
+				}
+				*/
+			}
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const menu = document.querySelector(".menu");
+            hamburger.addEventListener("click", () => {
+                menu.classList.toggle("visible");
+            });
+        });
+		/* Removed unused script
+        function initHeroEffect() {
+            const hero = document.querySelector(".hero");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    hero.classList.add("scrolled");
+                } else {
+                    hero.classList.remove("scrolled");
+					hiddenContent.style.bottom = "50%" // Reset position when scrolled back to the top
+                }
+            });
+		
+        }
+        */
+        document.addEventListener("DOMContentLoaded", initHeroEffect);
+    </script>
+    <script>
+        // Function to detect the browser language and redirect accordingly
+        window.onload = function() {
+            // Get the browser's language (defaults to 'en' if not found)
+            var userLang = navigator.language || navigator.userLanguage;
+
+            // Check if the language contains 'zh' (for Chinese)
+            if (userLang.includes('zh')) {
+                // Redirect to the Chinese version of the page
+                if (window.location.pathname === '/') {
+                    window.location.href = '/index_cn.html';  // Redirect to index_cn.html
+                }
+            } else {
+                // Default to the English version
+                if (window.location.pathname === '/') {
+                    window.location.href = '/index.html';  // Default page
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+<!--        <nav>
+			<a href="index.html">
+				<img src="./img/logo-transparent.png" alt="Home" height="24" width="75">
+			</a>
+            <a href="index.html">Home</a>
+			<a href="our-products.html">Our Products</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="use-and-care.html">Use and Care</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+        <div class="language-switch">
+			<a href="index.html">
+            	<img src="./img/us-flag.png" alt="English">
+			</a>
+			<a href="index_cn.html">
+            	<img src="./img/cn-flag.png" alt="Chinese">
+			</a>
+        </div>
+-->
+        <a href="index.html">
+            <img src="./img/logo-transparent.png" alt="Home" height="24" width="75">
+        </a>
+        <!-- <div class="language-switch"> -->
+        <div>
+            <a href="index.html">
+                <img height=24px src="./img/us-flag.png" alt="English" class="us-flag">
+            </a>
+            <a href="index_cn.html">
+                <img height=24px src="./img/cn-flag.png" alt="Chinese" class="cn-flag">
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu hidden">
+            <a href="index_cn.html">主页</a>
+            <a href="our-products_cn.html">我们的产品</a>
+            <a href="our-story_cn.html">我们的故事</a>
+            <a href="use-and-care_cn.html">使用与保养</a>
+            <a href="buy-products_cn.html">购买</a>
+            <a href="contact-us_cn.html">联系我们</a>
+        </nav>
+    </header>
+   <h1>我们的产品</h1>
+   <div class="product-section">
+	   <img src="./img/product-image-transparent.png" alt="VodaTank" class="product-image">
+	   <div class="description-overlay">
+		   <h2>简介</h2>
+		   <p style="color:White;"><strong>VodaTank</strong> 是一款单层不锈钢运动水壶，高26公分（约10英寸），直径7.5公分（3英寸），与常用的11公升潜水气瓶比例为 3.5:1；7.5公分的直径正好舒服的握在手掌上。水壶的杯身经过特殊表面处理，尤其在阳光底下会呈现如星星闪烁般的效果。</p>
+		   <p></p>
+		   <h2>产品材料构成</h2>
+		   <ul>
+			   <li><strong>杯盖</strong>：食品级 ABS，食品级油漆</li>
+			   <li><strong>杯盖装饰旋钮</strong>：TPU</li>
+			   <li><strong>杯身</strong>：奥氏体 750 不锈钢</li>
+			   <li><strong>密封圈</strong>：食品级硅胶</li>
+			   <li><strong>杯身底座</strong>：TPU</li>
+		   </ul>
+	   </div>
+	   <!--
+	  <div class="product-section">
+		  <img src="./img/free-stickers.JPG" alt="Free Stickers" class="product-image">
+		  <div class="description-overlay-sticker">
+			  <ul>
+				  <li>Your purchase comes with free professional designed stickers</li>
+			  </ul>
+		  </div>
+	  </div>
+	-->
+<!--	
+	<table>
+        <tr>
+            <td>
+            	<img src="./img/product-image-transparent.png">
+            </td>
+            <td width="400">
+				<h2 style="color:White;"><strong>General Description</strong></h2>
+				<p style="color:White;"><strong>VodaTank</strong> is a single-walled water bottle made of stainless steel, it measured 26cm (roughly 10 inches) in height and 7.5cm (3 inches) in diameter, it was scaled down 3.5:1 from a standard 11 liters scuba diving cylinder. It fits perfectly into your palm. The body of the bottle is finished with glossy protective layer, creating a shiny and blinking effect especially under sunlight.</p>
+				<h2 style="color:White;"><strong>Product Materials</strong></p></h2>
+				<p style="color:White;"><strong>Bottle cap</strong>: food grade acrylonitrile butadiene styrene (ABS), food grade paint</p>
+				<p style="color:White;"><strong>Bottle cap decorative knob</strong>: thermoplastic polyurethane (TPU)</p>
+				<p style="color:White;"><strong>Bottle body</strong>: austenite 750 stainless steel</p>
+				<p style="color:White;"><strong>Bottle cap seal</strong>: food grade silicone</p>
+				<p style="color:White;"><strong>Bootle boot</strong>: thermoplastic polyurethane (TPU)</p>
+			</td>
+			<td width="250">
+				<img src="./img/free-stickers.JPG">
+			</td>
+			<td>
+				<p style="color:White;">Your purchase comes with free professional designed stickers</p>
+			</td>
+    </table>
+-->
+</body>
+</html>
